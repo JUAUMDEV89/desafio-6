@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState, useEffect, useCallback } from 'react';
+import { createContext, ReactNode, useState, useEffect, useCallback , useMemo} from 'react';
 import { api } from '../services/api';
 
 interface MoviesContextProps{
@@ -44,9 +44,11 @@ export function MovieProvider({ children }: MovieProviderProps){
     }, [])
 
   useEffect(() => {
-    api.get<GenreResponseProps[]>('genres').then(response => {
+   useMemo(()=>{
+     return  api.get<GenreResponseProps[]>('genres').then(response => {
       setGenres(response.data);
     });
+   }, [genres])
   }, []);
 
   useEffect(() => {
@@ -65,3 +67,4 @@ export function MovieProvider({ children }: MovieProviderProps){
         { children }
    </MoviesContext.Provider>
 }
+
