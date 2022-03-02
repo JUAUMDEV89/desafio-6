@@ -1,6 +1,4 @@
-import { useContext } from 'react';
-
-import { MoviesContext } from './context/moviesContext';
+import { useMovie } from './hooks/useMovie';
 
 import { SideBar } from './components/SideBar';
 import { Content } from './components/Content';
@@ -12,7 +10,7 @@ import './styles/content.scss';
 
 export function App() {
  
-  const { genres, movies, selectedGenreId, selectedGenre, handleClickButton } = useContext(MoviesContext);
+  const { genres, movies, selectedGenreId, selectedGenre, handleClickButton } = useMovie();
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>

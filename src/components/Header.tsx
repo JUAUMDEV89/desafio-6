@@ -1,5 +1,4 @@
-import { useContext } from 'react';
-import { MoviesContext } from '../context/moviesContext';
+import { useMovie } from '../hooks/useMovie';
 
 interface HeaderProps {
   selectedGenre: {
@@ -10,7 +9,7 @@ interface HeaderProps {
 
 export function Header(){
 
-  const { selectedGenre } = useContext(MoviesContext);
+  const { selectedGenre } = useMovie();
 
   return(
         <header>

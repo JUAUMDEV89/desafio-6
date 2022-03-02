@@ -1,11 +1,10 @@
-import { useContext } from 'react';
 import { MovieCard } from "./MovieCard";
 import { Header } from  './Header';
-import { MoviesContext } from '../context/moviesContext';
+import { useMovie } from '../hooks/useMovie';
 
 export function Content() {
 
-  const { movies } = useContext(MoviesContext);
+  const { movies } = useMovie();
 
   return (
     <div className="container">

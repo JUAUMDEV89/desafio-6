@@ -1,20 +1,9 @@
 import { Button } from "./Button";
-import { useContext } from "react";
-import { MoviesContext } from '../context/moviesContext';
-
-interface SideBarProps {
-  genres: Array<{
-    id: number;
-    name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
-    title: string;
-  }>;
-  selectedGenreId: number;
-  buttonClickCallback: (args: any) => void;
-}
+import { useMovie } from '../hooks/useMovie';
 
 export function SideBar() {
 
-  const { selectedGenreId, genres, handleClickButton } = useContext(MoviesContext);
+  const { selectedGenreId, genres, handleClickButton } = useMovie();
 
   return (
     <nav className="sidebar">

@@ -52,6 +52,7 @@ export function MovieProvider({ children }: MovieProviderProps){
   useEffect(() => {
     api.get<MovieProps[]>(`movies/?Genre_id=${selectedGenreId}`).then(response => {
       setMovies(response.data);
+      console.log(response.data)
   });
 
     api.get<GenreResponseProps>(`genres/${selectedGenreId}`).then(response => {
