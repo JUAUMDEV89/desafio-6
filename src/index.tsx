@@ -2,4 +2,10 @@ import { render } from 'react-dom'
 
 import { App } from './App'
 
-render(<App />, document.getElementById('root'))
+import { MovieProvider } from './context/moviesContext';
+
+render(
+    <MovieProvider>
+        <App />
+    </MovieProvider>
+    , document.getElementById('root'))

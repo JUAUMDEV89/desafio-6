@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { MoviesContext } from '../context/moviesContext';
+
 interface HeaderProps {
   selectedGenre: {
     id: number;
@@ -5,7 +8,10 @@ interface HeaderProps {
     title: string;  }
   };
 
-export function Header({ selectedGenre }: HeaderProps){
+export function Header(){
+
+  const { selectedGenre } = useContext(MoviesContext);
+
   return(
         <header>
             <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
